@@ -62,9 +62,9 @@ public class Weather {
             return false;
         } else if (currentRainState == rainState.THUNDERSTORM) {
             return false;
-        } else if (currentRainState == rainState.LIGHT_RAIN || currentWindState != windState.CALM) {
+        } else if (currentRainState == rainState.LIGHT_RAIN && currentWindState != windState.CALM) {
             return false;
-        } else if (currentWindState == windState.LIGHT_BREEZE && currentRainState != rainState.CLEAR) {
+        } else if (currentWindState == windState.LIGHT_BREEZE && (currentRainState != rainState.CLEAR)) {
             return false;
         } else {
             return true;

@@ -118,4 +118,7 @@ public class TextBlocks {
         }
         return (counter);
     }
+    public void printLaunchPrompt(){
+        ui.print("\n1. Launch Today\n2. Postpone launch one day\n\nWhat would you like to do? ");
+    }
 }

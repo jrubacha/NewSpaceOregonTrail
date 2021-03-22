@@ -17,17 +17,28 @@ class Main {
         // Buy food for said crew
         ui.println("buy food. how much want");
         Supplies.Food myFood = new Supplies.Food(keyboard.nextInt());
-        ui.println("Test. amt of food " + myFood.getQuantity() + " and have we starved? " + myFood.hasCrewStarved());
 
         // Test the weather stuff
         Weather myWeather = new Weather();
         int counter = 1;
-        while (true) {
+        int userSelc = 0;
+        while (counter<15 && userSelc !=1) {
             myWeather.rollWeatherConditions();
             ui.clear();
             ui.println("Launch Window - Day " + counter++ + " of 14.");
             myWeather.printCurrentWeatherForecast();
-            ui.pressEnter();
+            text.printLaunchPrompt();
+            userSelc = keyboard.nextInt();
         }
+        if (counter>15){
+            ui.println("Oh no! You waited too long.");
+            System.exit(0);
+        } else if (!myWeather.isLaunchSuccessful()) {
+            ui.println("Oh no! You died.");
+            System.exit(0);
+        } else {
+            ui.println("Congrats! You didn't die on launch.");
+        }
+        
     } 
 }
