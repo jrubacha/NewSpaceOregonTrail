@@ -77,6 +77,26 @@ public class Crew {
         ui.pressEnter();
     }
 
+    public boolean doesCrewHaveCommOfficer(){
+        boolean foundCommOfficer = false;
+        for (CrewMember i : crewList) {
+            if (i.occupation == CrewMember.CrewMemberOccupation.COMMUNICATIONS_OFFICER) {
+                foundCommOfficer = true;
+            }
+        }
+        return foundCommOfficer;
+    }
+    public boolean doesCrewHaveEngineer(){
+        boolean foundEngineer = false;
+        for (CrewMember i : crewList) {
+            if (i.occupation == CrewMember.CrewMemberOccupation.ENGINEER) {
+                foundEngineer = true;
+            }
+        }
+        return foundEngineer;
+    }
+
+
     public String getOverallCrewHealth(){
         int count=0;
         for (CrewMember i : crewList) {

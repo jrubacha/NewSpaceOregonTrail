@@ -59,10 +59,28 @@ class Main {
                         myFood.changeRationSize(keyboard.nextInt());
                         break;
                     case 4:
+                        if (myCrew.doesCrewHaveCommOfficer()) {
+                            ui.println("Trade dialogue.");
+                        } else {
+                            ui.println("You don't have a Communications Officer. You cannot contact anyone to trade with.");
+                        }
+                        ui.pressEnter();
                         break;
                     case 5:
+                        if (myCrew.doesCrewHaveCommOfficer()) {
+                            ui.println("Talk dialogue.");
+                        } else {
+                            ui.println("You don't have a Communications Officer. You cannot contact anyone to talk with.");
+                        }
+                        ui.pressEnter();
                         break;
                     case 6:
+                        if (myCrew.doesCrewHaveEngineer()) {
+                            ui.println("Repair dialogue.");
+                        } else {
+                            ui.println("You don't have an Engineer. You cannot perform ship maintenance.");
+                        }
+                        ui.pressEnter();
                         break;
                     default:
                         break;
