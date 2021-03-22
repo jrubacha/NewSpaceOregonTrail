@@ -96,6 +96,17 @@ public class Crew {
         return foundEngineer;
     }
 
+    public void fireCrewMember(){
+        ui.clear();
+        ui.println("Here's your current crew:");
+        int j = 1;
+        for (CrewMember i : crewList) {
+            ui.println(j++ + ".  " + i.getName());
+        }
+        ui.print("Who would you like to fire? ");
+        int firedMember = keyboard.nextInt();
+        crewList.remove(firedMember - 1);
+    }
 
     public String getOverallCrewHealth(){
         int count=0;

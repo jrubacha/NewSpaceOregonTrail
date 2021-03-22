@@ -87,6 +87,12 @@ class Main {
                 }
             }
             tripOneCurrentDay++;
-        }
+        } // trip one
+
+        // Welcome to the MOON!
+        text.printMoonWelcome();
+
+        myCrew.fireCrewMember();
+        myCrew.printCrewList();
     } 
 }

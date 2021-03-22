@@ -148,4 +148,10 @@ public class TextBlocks {
         ui.println(craft.getCurrentFuel() + " fuel");
         ui.pressEnter();
     }
+
+    public void printMoonWelcome() {
+        ui.clear();
+        ui.println("Wecolme to Moon Base! Established in 2134, the Moon Base is a thriving hub of near-field research, commerce, and entertainment. You are welcome to stay in your docking station as long as you want, parking here is always free. Check out the vendors if you need a new ship, more supplies, or want to hire/fire any crew members. Interstellar launch rings will be waiting to take you on to the Mars Colony when you're ready to leave.\n");
+        ui.pressEnter();
+    }
 }
