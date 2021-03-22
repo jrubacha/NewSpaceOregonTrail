@@ -11,6 +11,7 @@ public class Crew {
         while ((sumTotalOfCrew() < maxCapacity) && (userSelc != 5)) {
             CrewMember.CrewMemberOccupation currentJob = CrewMember.CrewMemberOccupation.ENGINEER; // default to engr
             hireCrewPrompt();
+            int remainingCapacity = maxCapacity - sumTotalOfCrew();
             userSelc = keyboard.nextInt();
             switch (userSelc) {
                 case 1:
@@ -39,26 +40,33 @@ public class Crew {
             
             if (userSelc !=5) {
                 int numberOfCrewToAdd = keyboard.nextInt();
-                for (int i=0; i<numberOfCrewToAdd; i++) {
-                    ui.print("What this crew members name? ");
-                    String newCrewName = keyboard.next();
-                    crewList.add(new CrewMember(newCrewName, currentJob));
+                if (numberOfCrewToAdd < 0 || numberOfCrewToAdd > remainingCapacity) {
+                    ui.clear();
+                    ui.println("I'm sorry, you can't hire that number. No hires were made.");
+                } else {
+                    ui.clear();
+                    for (int i=0; i<numberOfCrewToAdd; i++) {
+                        ui.print("What this crew member's name? ");
+                        String newCrewName = keyboard.next();
+                        crewList.add(new CrewMember(newCrewName, currentJob));
+                    }
                 }
             }
         }
     }
 
     public void hireCrewPrompt(){
+        ui.clear();
         ui.println("\nWho would you like to hire?\n1. Engineer\n2. Scientist\n3. Communications Officer\n4. Pilot\n5. No more hires");
     }
 
     public int sumTotalOfCrew() {
-        return Arrays.stream(crewMakeUp).sum();
+        return (crewList.size() + 1);
     }
 
     public void printCrewList(){
         for (CrewMember i : crewList) {
-            ui.println("Name: " + i.getName() + "  Occupation: " + i.getOccupation() + "   Health: " + i.getHealth() +"\n\n");
+            ui.println("Name: " + i.getName() + "  Occupation: " + i.getOccupation() + "   Health: " + i.getHealth());
         }
     }
 }
