@@ -111,4 +111,34 @@ public class SpaceCraft {
     public String getSpeedString(){
         return speed.toString();
     }
+
+    public int calculateTimeToMoon() {
+        if (speed == craftSpeed.FAST) {
+            return 2;
+        } else if (speed == craftSpeed.AVERAGE) {
+            return 3;
+        } else {
+            return 4;
+        }
+    }
+
+    public int calculateTimeToMars() {
+        if (speed == craftSpeed.FAST) {
+            return (30 * 6);
+        } else if (speed == craftSpeed.AVERAGE) {
+            return (30 * 7);
+        } else {
+            return (30 * 8);
+        }
+    }
+
+    public int calculateTimeToInnerBeltStation() {
+        if (speed == craftSpeed.FAST) {
+            return (30 * 6 * 3); // essentially, it's 3 times the length of time to mars
+        } else if (speed == craftSpeed.AVERAGE) {
+            return (30 * 7 * 3);
+        } else {
+            return (30 * 8 * 3);
+        }
+    }
 }

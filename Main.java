@@ -39,6 +39,11 @@ class Main {
         } else {
             ui.println("Congrats! You didn't die on launch.");
         }
-        
+
+        int tripOneDuration = myCraft.calculateTimeToMoon();
+        int tripOneCurrentDay = 1;
+        while (ui.areWeAlive(myFood, myCraft, myCrew, tripOneCurrentDay) && tripOneCurrentDay < tripOneDuration) {
+            text.printDailyMessage(tripOneCurrentDay++);
+        }
     } 
 }

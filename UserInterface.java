@@ -19,4 +19,8 @@ public class UserInterface {
         print("\n< Press ENTER to continue >");
         keyboard.nextLine();
     }
+
+    public boolean areWeAlive(Supplies supplies, SpaceCraft craft, Crew crew, int days) {
+        return true;
+    }
 }

@@ -121,4 +121,12 @@ public class TextBlocks {
     public void printLaunchPrompt(){
         ui.print("\n1. Launch Today\n2. Postpone launch one day\n\nWhat would you like to do? ");
     }
+
+    public void printLaunchSuccess(SpaceCraft myCraft) {
+        ui.print("Congrats on making it to space. You're on your way to the Moon now. ");
+    }
+
+    public void printDailyMessage(int day) {
+        ui.println("Hello. It's day #" + day + " in space.");
+    }
 }
