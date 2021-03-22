@@ -138,7 +138,7 @@ public class TextBlocks {
         ui.println("4. Attempt to trade");
         ui.println("5. Talk to people");
         ui.println("6. Perform ship maintenance");
-        ui.print("\n What is your choice? ");
+        ui.print("\nWhat is your choice? ");
     }
 
     public void printSupplycheck(Supplies.Food food, SpaceCraft craft) {

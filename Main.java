@@ -16,7 +16,7 @@ class Main {
         myCrew.printCrewList();
 
         // Buy food for said crew
-        ui.println("buy food. how much want");
+        ui.print("The average person eats 2 lbs of food a day.\n\nHow many punds of food would you like? ");
         Supplies.Food myFood = new Supplies.Food(keyboard.nextInt());
 
         // Test the weather stuff
@@ -55,6 +55,8 @@ class Main {
                         text.printSupplycheck(myFood, myCraft);
                         break;
                     case 3:
+                        myFood.printChangeRationSizePrompt();
+                        myFood.changeRationSize(keyboard.nextInt());
                         break;
                     case 4:
                         break;

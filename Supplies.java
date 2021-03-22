@@ -1,4 +1,5 @@
 class Supplies {
+    UserInterface ui = new UserInterface();
     int amount;
 
     public int getQuantity(){
@@ -21,6 +22,7 @@ class Supplies {
             MEAGER,
             FILLING
         }
+        
         public Food (int quantityOfFood) {
             this.amount = quantityOfFood;
             rationSize = FoodRationSize.FILLING;
@@ -46,15 +48,28 @@ class Supplies {
                 default:
                     rateOfConsumption = 3;
             }
-            amount = amount - crewSize * rateOfConsumption;
+            amount = amount - (crewSize * rateOfConsumption);
         }
-
+        public void changeRationSize(int userChoice){
+            if (userChoice == 3) {
+                setRationSizeToBareBones();
+            } else if (userChoice == 2) {
+                setRationSizetoMeager();
+            } else {
+                setRationSizetoFilling();
+            }
+        }
         public boolean hasCrewStarved() {
             if (amount <= 0) {
                 return true;
             } else {
                 return false;
             }
+        }
+        public void printChangeRationSizePrompt(){
+            ui.clear();
+            ui.println("Change food rations\n< Currently " + rationSize +" >");
+            ui.print("The amount of food the people in your crew each each day can change. These amounts are:\n1. Filling - meals are large and generous.\n2. Meager - meals are small, but adequate.\n3. Bare bones - meals are very small; everyone stays hungry.\n\nWhat is your choice? ");
         }
     }
 }

@@ -12,9 +12,13 @@ public class UserInterface {
         System.out.flush();
     }
 
-    public void printpad(String word) {
-        System.out.printf("%50s\n", word);
+    public void printpad15(String word) {
+        System.out.printf("%15s", word);
     }
+    public void printpad35(String word) {
+        System.out.printf("%35s", word);
+    }
+
     public void pressEnter(){
         print("\n< Press ENTER to continue >");
         keyboard.nextLine();
