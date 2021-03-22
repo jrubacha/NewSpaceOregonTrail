@@ -126,7 +126,8 @@ public class TextBlocks {
         ui.print("Congrats on making it to space. You're on your way to the Moon now. ");
     }
 
-    public void printDailyMessage(int day) {
+    public void printDailyMessage(int day, Crew crew) {
         ui.println("Hello. It's day #" + day + " in space.");
+        ui.println("Crew Condition: " + crew.getOverallCrewHealth());
     }
 }

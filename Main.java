@@ -5,6 +5,7 @@ class Main {
         TextBlocks text = new TextBlocks();
         Scanner keyboard = new Scanner(System.in);
         Crew myCrew = new Crew();
+        myCrew.addCaptain();
         ui.println("Ship pick");
         SpaceCraft myCraft = new SpaceCraft();
         myCraft = text.getCraftSelection(text.loopShipText());
@@ -43,7 +44,8 @@ class Main {
         int tripOneDuration = myCraft.calculateTimeToMoon();
         int tripOneCurrentDay = 1;
         while (ui.areWeAlive(myFood, myCraft, myCrew, tripOneCurrentDay) && tripOneCurrentDay < tripOneDuration) {
-            text.printDailyMessage(tripOneCurrentDay++);
+            myFood.eatFood(myCrew.sumTotalOfCrew());
+            text.printDailyMessage(tripOneCurrentDay++, myCrew);
         }
     } 
 }

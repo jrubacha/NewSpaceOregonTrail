@@ -4,7 +4,12 @@ public class Crew {
     ArrayList<CrewMember> crewList = new ArrayList<CrewMember>();
     UserInterface ui = new UserInterface();
     Scanner keyboard = new Scanner(System.in);
-    int[] crewMakeUp = {0, 0, 0, 0, 1}; // engr, sci, comm, pilot, capt
+    //int[] crewMakeUp = {0, 0, 0, 0, 1}; // engr, sci, comm, pilot, capt
+
+    public void addCaptain(){
+        ui.print("Hello, welcome to Star Command. What is your name? ");
+        crewList.add(new CrewMember(keyboard.next(), CrewMember.CrewMemberOccupation.CAPTAIN));
+    }
 
     public void assembleCrew(int maxCapacity) {
         int userSelc = 0;
@@ -61,12 +66,30 @@ public class Crew {
     }
 
     public int sumTotalOfCrew() {
-        return (crewList.size() + 1);
+        return (crewList.size());
     }
 
     public void printCrewList(){
         for (CrewMember i : crewList) {
             ui.println("Name: " + i.getName() + "  Occupation: " + i.getOccupation() + "   Health: " + i.getHealth());
+        }
+    }
+
+    public String getOverallCrewHealth(){
+        int count=0;
+        for (CrewMember i : crewList) {
+            if ("Good".equalsIgnoreCase(i.getHealth())) {
+                count++;
+            } else if ("Poor".equalsIgnoreCase(i.getHealth())) {
+                count--;
+            }
+        }
+        if (count > (2 * crewList.size() / 3)) {
+            return "Good";
+        } else if (count > (2 * crewList.size() / 5)) {
+            return "Fair";
+        } else {
+            return "Poor";
         }
     }
 }
