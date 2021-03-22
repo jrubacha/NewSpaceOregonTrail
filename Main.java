@@ -6,7 +6,7 @@ class Main {
         SpaceCraft myCraft = new SpaceCraft();
         myCraft = text.getCraftSelection(text.loopShipText());
         ui.println(myCraft.getCraftName());
+
+        
     } 
 }
-
-// String name, craftSpeed speed, craftQuality quality, int capacity, int cost, craftTankSize tankSize
