@@ -1,4 +1,5 @@
 public class SpaceCraft {
+    UserInterface ui = new UserInterface();
     enum craftQuality {
         POOR,
         FAIR,
@@ -21,23 +22,23 @@ public class SpaceCraft {
     int cost, capacity;
     static int currentFuel = getMaxFuel();
 
-    public SpaceCraft(String name, craftSpeed speed, craftQuality quality, int capacity, int cost, craftTankSize tankSize) {
-        this.name = name;
-        this.speed = speed;
-        this.quality = quality;
-        this.capacity = capacity;
-        this.cost = cost;
-        SpaceCraft.tankSize = tankSize;
-    }
-
     public String getCraftName() {
         return name;
+    }
+    public void setCraftName(String newCraftName){
+        name = newCraftName;
     }
     public int getCapacity() {
         return capacity;
     }
+    public void setCapacity(int maxCrewSize) {
+        capacity = maxCrewSize;
+    }
     public int getCost() {
         return cost;
+    }
+    public void setCost(int newCost){
+        cost = newCost;
     }
     public int getCurrentFuel() {
         return currentFuel;
@@ -51,6 +52,61 @@ public class SpaceCraft {
             return 500;
         }
     }
+    public void displayCraftSpecs() {
+        ui.println(name);
+        ui.println("Quality: " + quality);
+        ui.println("Speed: " + speed);
+        ui.println("Capacity: " + capacity);
+        ui.println("Fuel: " + tankSize);
+        ui.println("Cost: " + cost);
+    }
+    public void calculateFuelBurn() {
+        int fuelBurn = 0;
+        currentFuel = currentFuel - fuelBurn;
+    }
+    public boolean isFuelRemaining() {
+        if (currentFuel > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public void resetFuelTo(int fuelAmount){
+        currentFuel = fuelAmount;
+    }
 
+    public void setTankSizeToSmall() {
+        tankSize = craftTankSize.SMALL;
+    }
+    public void setTankSizeToMedium() {
+        tankSize = craftTankSize.MEDIUM;
+    }
+    public void setTankSizeToLarge() {
+        tankSize = craftTankSize.LARGE;
+    }
 
+    public void setQualitytoHigh(){
+        quality = craftQuality.GOOD;
+    }
+    public void setQualitytoFair(){
+        quality = craftQuality.FAIR;
+    }
+    public void setQualitytoPoor(){
+        quality = craftQuality.POOR;
+    }
+    public String getQualityString(){
+        return quality.toString();
+    }
+    public void setSpeedtoSlow(){
+        speed = craftSpeed.SLOW;
+    }
+    public void setSpeedtoMedium(){
+        speed = craftSpeed.AVERAGE;
+    }
+    public void setSpeedtoFast(){
+        speed = craftSpeed.FAST;
+    }
+    public String getSpeedString(){
+        return speed.toString();
+    }
 }
