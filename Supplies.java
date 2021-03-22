@@ -13,6 +13,7 @@ class Supplies {
     public void reduceQuantity(int newAmount) {
         amount = amount - newAmount;
     }
+    
     public static class Food extends Supplies {
         FoodRationSize rationSize;
         enum FoodRationSize {

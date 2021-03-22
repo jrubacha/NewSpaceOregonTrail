@@ -45,7 +45,28 @@ class Main {
         int tripOneCurrentDay = 1;
         while (ui.areWeAlive(myFood, myCraft, myCrew, tripOneCurrentDay) && tripOneCurrentDay < tripOneDuration) {
             myFood.eatFood(myCrew.sumTotalOfCrew());
-            text.printDailyMessage(tripOneCurrentDay++, myCrew);
+            myCraft.calculateFuelBurn();
+            userSelc = 0;
+            while(userSelc != 1) {
+                text.printDailyMessage(tripOneCurrentDay, myCrew, myFood);
+                userSelc = keyboard.nextInt();
+                switch (userSelc) {
+                    case 2:
+                        text.printSupplycheck(myFood, myCraft);
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+                    case 6:
+                        break;
+                    default:
+                        break;
+                }
+            }
+            tripOneCurrentDay++;
         }
     } 
 }

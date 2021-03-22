@@ -126,8 +126,26 @@ public class TextBlocks {
         ui.print("Congrats on making it to space. You're on your way to the Moon now. ");
     }
 
-    public void printDailyMessage(int day, Crew crew) {
+    public void printDailyMessage(int day, Crew crew, Supplies.Food food) {
+        ui.clear();
         ui.println("Hello. It's day #" + day + " in space.");
         ui.println("Crew Condition: " + crew.getOverallCrewHealth());
+        ui.println("Food: " + food.getQuantity() + " lbs remaining");
+        ui.println("\n=========================");
+        ui.println("1. Continue on your journey");
+        ui.println("2. Check supplies");
+        ui.println("3. Change food rations");
+        ui.println("4. Attempt to trade");
+        ui.println("5. Talk to people");
+        ui.println("6. Perform ship maintenance");
+        ui.print("\n What is your choice? ");
+    }
+
+    public void printSupplycheck(Supplies.Food food, SpaceCraft craft) {
+        ui.clear();   
+        ui.println("You currently have the following supplies:\n"); 
+        ui.println(food.getQuantity() + " lbs of food");
+        ui.println(craft.getCurrentFuel() + " fuel");
+        ui.pressEnter();
     }
 }

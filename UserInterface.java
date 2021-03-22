@@ -21,6 +21,7 @@ public class UserInterface {
     }
 
     public boolean areWeAlive(Supplies supplies, SpaceCraft craft, Crew crew, int days) {
+        
         return true;
     }
 }
