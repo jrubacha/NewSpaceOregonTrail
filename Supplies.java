@@ -33,5 +33,27 @@ class Supplies {
         public void setRationSizetoFilling(){
             rationSize = FoodRationSize.FILLING;
         }
+        public void eatFood(int crewSize) {
+            int rateOfConsumption;
+            switch (rationSize) {
+                case BAREBONES:
+                    rateOfConsumption = 1;
+                    break;
+                case MEAGER:
+                    rateOfConsumption = 2;
+                    break;
+                default:
+                    rateOfConsumption = 3;
+            }
+            amount = amount - crewSize * rateOfConsumption;
+        }
+
+        public boolean hasCrewStarved() {
+            if (amount <= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 }
