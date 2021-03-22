@@ -4,6 +4,7 @@ class Main {
         UserInterface ui = new UserInterface();
         TextBlocks text = new TextBlocks();
         Scanner keyboard = new Scanner(System.in);
+        Crew myCrew = new Crew();
         ui.println("Ship pick");
         SpaceCraft myCraft = new SpaceCraft();
         myCraft = text.getCraftSelection(text.loopShipText());
@@ -13,5 +14,9 @@ class Main {
         Supplies.Food myFood = new Supplies.Food(keyboard.nextInt());
         ui.println("Test. amt of food " + myFood.getQuantity() + " and have we starved? " + myFood.hasCrewStarved());
 
+
+        // crew test
+        myCrew.assembleCrew(myCraft.capacity);
+        myCrew.printCrewList();
     } 
 }
