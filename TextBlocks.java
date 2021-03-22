@@ -62,55 +62,63 @@ public class TextBlocks {
         return firstCraft;
     }
     public void printSaturnVText(){
-        ui.println("Saturn V description");
+        ui.println("\nSaturn V description");
     }
     public void printFalconText(){
-        ui.println("Falcon Text");
+        ui.println("\nFalcon Text");
     }
     public void printNewShepardText(){
-        ui.println("New Shepard Text");
+        ui.println("\nNew Shepard Text");
     }
     public void printArtemisText(){
-        ui.println("Artemis Text");
+        ui.println("\nArtemis Text");
     }
     public void printNewOrionText(){
-        ui.println("New Orion Text");
+        ui.println("\nNew Orion Text");
     }
 
     public int loopShipText() {
         boolean stillBrowsing = true;
         int counter = 1;
         while (stillBrowsing) {
-            switch (counter++) {
+            switch (counter) {
                 case 1:
                     printSaturnVText();
+                    ui.println("Counter is " + counter);
                     break;
                 case 2:
                     printFalconText();
+                    ui.println("Counter is " + counter);
                     break;
                 case 3:
                     printNewShepardText();
+                    ui.println("Counter is " + counter);
                     break;
                 case 4:
                     printArtemisText();
+                    ui.println("Counter is " + counter);
                     break;
                 case 5:
                     printNewOrionText();
+                    ui.println("Counter is " + counter);
                     break;
                 default:
                     ui.println("Something's wrong.");
                     break;
             }
-            // Loop back to beginning of ship list
-            if (counter > 5) {
-                counter = 1;
-            }
+            // Give user options
             ui.println("\n1. See next ship\n2. Purchase this ship\n\nWhat would you like to do? ");
+            // Are we done?
             if (keyboard.nextInt() == 2) {
-                stillBrowsing = false;
-                
+                stillBrowsing = false; 
+            } else {
+                counter++;
+                // Loop back to beginning of ship list
+                if (counter > 5) {
+                    counter = 1;
+                }
             }
         }
-        return (counter - 1);
+        return (counter);
     }
 }
