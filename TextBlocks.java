@@ -61,7 +61,7 @@ public class TextBlocks {
         }
         return firstCraft;
     }
-    
+
     public void printSaturnVText(){
         ui.println("\nSaturn V Text");
     }
@@ -82,26 +82,22 @@ public class TextBlocks {
         boolean stillBrowsing = true;
         int counter = 1;
         while (stillBrowsing) {
+            ui.clear();
             switch (counter) {
                 case 1:
                     printSaturnVText();
-                    ui.println("Counter is " + counter);
                     break;
                 case 2:
                     printFalconText();
-                    ui.println("Counter is " + counter);
                     break;
                 case 3:
                     printNewShepardText();
-                    ui.println("Counter is " + counter);
                     break;
                 case 4:
                     printArtemisText();
-                    ui.println("Counter is " + counter);
                     break;
                 case 5:
                     printNewOrionText();
-                    ui.println("Counter is " + counter);
                     break;
                 default:
                     ui.println("Something's wrong.");
