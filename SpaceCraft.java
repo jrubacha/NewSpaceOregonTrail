@@ -22,6 +22,15 @@ public class SpaceCraft {
     int cost, capacity;
     static int currentFuel = getMaxFuel();
 
+    public void displayCraftSpecs() {
+        ui.println(name);
+        ui.println("Quality: " + quality);
+        ui.println("Speed: " + speed);
+        ui.println("Capacity: " + capacity);
+        ui.println("Fuel: " + tankSize);
+        ui.println("Cost: " + cost);
+    }
+
     public String getCraftName() {
         return name;
     }
@@ -52,16 +61,9 @@ public class SpaceCraft {
             return 500;
         }
     }
-    public void displayCraftSpecs() {
-        ui.println(name);
-        ui.println("Quality: " + quality);
-        ui.println("Speed: " + speed);
-        ui.println("Capacity: " + capacity);
-        ui.println("Fuel: " + tankSize);
-        ui.println("Cost: " + cost);
-    }
+    
     public void calculateFuelBurn() {
-        int fuelBurn = 0;
+        int fuelBurn = 10;
         currentFuel = currentFuel - fuelBurn;
     }
     public boolean isFuelRemaining() {
