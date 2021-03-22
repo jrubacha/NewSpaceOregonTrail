@@ -15,9 +15,10 @@ public  class CrewMember {
         CAPTAIN
     }
 
-    public CrewMember(String name) {
+    public CrewMember(String name, CrewMemberOccupation occupation) {
         this.name = name;
         this.health = CrewMemberHealth.GOOD;
+        this.occupation = occupation;
     }
 
     public String getOccupation(){
@@ -38,4 +39,5 @@ public  class CrewMember {
     public void setHealthToGood(){
         health = CrewMemberHealth.GOOD;
     }
+    //public
 }
