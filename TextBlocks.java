@@ -4,6 +4,14 @@ public class TextBlocks {
     UserInterface ui = new UserInterface();
     Scanner keyboard = new Scanner(System.in);
 
+    public void printGameIntro(){
+        ui.clear();
+        printStarLines();
+        ui.println("Greetings eager space traveller, and welcome to Star Command.\n\nToday marks your first step in a long journey through the stars. We're glad you chose us to fly with.\n\nYour mission? Successfully navigate the solar system and deliver your crew and equipment safely to the Ganymede Research Center. They are counting on you to get the job done.\n");
+        printStarLines();
+        ui.pressEnter();
+    }
+
     public SpaceCraft getCraftSelection(int whichCraft){
         SpaceCraft firstCraft = new SpaceCraft();
         boolean needAShip = true;
@@ -63,19 +71,19 @@ public class TextBlocks {
     }
 
     public void printSaturnVText(){
-        ui.println("\nOption 1: Saturn V Rocket\nA flight vehicle straight out of history, this rocket will get you where you need to go. So long as that place is the Moon and your initial flight crew small, three passengers maximum including you Captain.\nCost: 1000\nCapacity: 3\nRange: Moon Base");
+        ui.println("\nOption 1: Saturn V Rocket\n\nA flight vehicle straight out of history, this rocket will get you where you need to go. So long as that place is the Moon.\nKeep your initial flight crew small, three passengers maximum, including you Captain.\n\nCost: 1000\nCapacity: 3\nRange: Moon Base");
     }
     public void printFalconText(){
-        ui.println("\nOption 2: Atlas Falcon\nA slightly more modern alternative to the Saturn V, the Atlas Falcon is similarly capable of lifting you and three others into orbit.\nCost: 5000\nCapacity: 4\nRange: Moon Base");
+        ui.println("\nOption 2: Atlas Falcon\n\nA slightly more modern alternative to the Saturn V, the Atlas Falcon is similarly capable of lifting you and three others into orbit.\n\nCost: 5000\nCapacity: 4\nRange: Moon Base");
     }
     public void printNewShepardText(){
-        ui.println("\nOption 3: New Shepard XC\nIt’s not the prettiest spacecraft, but the New Shepard will get you out into the solar system. With an extended range from its earlier counterparts, this ship will take you all the way to Mars, maybe further if you’re careful with your supplies.\nCost: 10000\nCapacity: 6\nRange: Inner Ring Station");
+        ui.println("\nOption 3: New Shepard XC\n\nIt’s not the prettiest spacecraft, but the New Shepard will get you out into the solar system. With an extended range from its earlier counterparts, this ship will take you all the way to Mars, maybe further if you’re careful with your supplies.\n\nCost: 10000\nCapacity: 6\nRange: Inner Ring Station");
     }
     public void printArtemisText(){
-        ui.println("\nOption 4: Artemis N\nOne of the world’s leaders in solar system travel, Artemis doesn’t disappoint with their ‘N’ series craft. Designed for long journeys in mind, the Artemis N will take you wherever you need to go.\nCost: 20000\nCapacity: 10\nRange: Kuiper Belt");
+        ui.println("\nOption 4: Artemis N\n\nOne of the world’s leaders in solar system travel, Artemis doesn’t disappoint with their ‘N’ series craft. Designed for long journeys in mind, the Artemis N will take you wherever you need to go.\n\nCost: 20000\nCapacity: 10\nRange: Kuiper Belt");
     }
     public void printNewOrionText(){
-        ui.println("\nOption 5: New Orion\nThe interstellar flight vehicle. Top of the line in speed, luxury, and navigational control, you can’t go wrong with this craft. Travel in style to your destination and never worry about a thing.\nCost: 40000\nCapacity: 12\nRange: Proxima b");
+        ui.println("\nOption 5: New Orion\n\nTHE interstellar flight vehicle. Top of the line in speed, luxury, and navigational control, you can’t go wrong with this craft. Travel in style to your destination and never worry about a thing.\n\nCost: 40000\nCapacity: 12\nRange: Proxima b");
     }
 
     public int loopShipText() {
@@ -240,7 +248,7 @@ public class TextBlocks {
     public void shipSelectionPrompt(String captainName) {
         ui.clear();
         printStarLines();
-        ui.println("Welcome aboard Captain " + captainName + "!\n\nYour first task is to choose a ship.\n\nChoose wisely, some of these flight vehicles are meant for short voyages only and others are suitable for long hauls.\n\nYou will have the opportunity to purchase a new flight vehicle at each waystion.\n");
+        ui.println("Welcome aboard Captain " + captainName + "!\n\nYour first task is to choose a ship.\n\nChoose wisely, some of these flight vehicles are meant for short voyages only and others are suitable for long hauls. You will have the opportunity to purchase a new flight vehicle at each waystion.\n\nYour starting budget is $" + Supplies.Money.amountOfMoney + ". Ship costs include any fuel needed to get out of Earth's orbit.");
         printStarLines();
         ui.pressEnter();
     }

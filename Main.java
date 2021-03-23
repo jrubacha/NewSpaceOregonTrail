@@ -11,6 +11,7 @@ class Main {
         SpaceCraft myCraft = new SpaceCraft();
 
         // Welcome and get Captain Name
+        text.printGameIntro();
         myCrew.addCaptain();
 
 
@@ -26,7 +27,8 @@ class Main {
         myCrew.printCrewList();
 
         // Buy food for said crew
-        ui.print("The average person eats 2 lbs of food a day.\n\n");
+        ui.println("Now that you have a crew, you'll need to take care of them.\n\nYou'll need to make initial purchases of food and water to last at least until you can get to the moon.");
+        ui.pressEnter();
         myFood.buyFood();
 
         // Test the weather stuff

@@ -8,7 +8,7 @@ public class Crew {
 
     public void addCaptain(){
         ui.clear();
-        ui.print("Hello, welcome to Star Command. What is your name? ");
+        ui.print("Let's get started. First, what is your name? ");
         String captainName = keyboard.next();
         captainName = captainName.substring(0,1).toUpperCase() + captainName.substring(1).toLowerCase();
         crewList.add(new CrewMember(captainName, CrewMember.CrewMemberOccupation.CAPTAIN));

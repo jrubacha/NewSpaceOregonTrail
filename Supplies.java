@@ -51,7 +51,7 @@ class Supplies {
         }
         
         public Food (int quantityOfFood) {
-            this.amount = quantityOfFood;
+            Supplies.amount = quantityOfFood;
             rationSize = FoodRationSize.FILLING;
         }
         public void printFoodQuantityAndRationSize(){
@@ -65,7 +65,7 @@ class Supplies {
             ui.pressEnter();
         }
         public void buyFood() {
-            ui.println("< Buying Food >\n\nHow many pounds of food would you like to buy? ");
+            ui.println("< Buying Food >\n\nThe average person eats 2 lbs of food a day.\n\nHow many pounds of food would you like to buy? ");
             int buyAmount = keyboard.nextInt();
             purchaseQuantity(buyAmount, foodBaseValue);
             ui.println("You now have " + amount + " lbs of food.\n\nYou have $" + Money.amountOfMoney + "\n");
