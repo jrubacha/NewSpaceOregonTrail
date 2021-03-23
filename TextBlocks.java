@@ -154,4 +154,58 @@ public class TextBlocks {
         ui.println("Wecolme to Moon Base! Established in 2134, the Moon Base is a thriving hub of near-field research, commerce, and entertainment. You are welcome to stay in your docking station as long as you want, parking here is always free. Check out the vendors if you need a new ship, more supplies, or want to hire/fire any crew members. Interstellar launch rings will be waiting to take you on to the Mars Colony when you're ready to leave.\n");
         ui.pressEnter();
     }
+
+    public void printMoonDailyMessage(int day, Crew crew, Supplies.Food food, SpaceCraft craft){
+        ui.clear();
+        ui.println("Hello. It's day #" + day + " in space.");
+        ui.println("Crew Condition: " + crew.getOverallCrewHealth());
+        ui.println("Food: " + food.getQuantity() + " lbs remaining");
+        ui.println("\n=========================");
+        ui.println("1. Continue on your journey");
+        ui.println("2. Manage supplies");
+        ui.println("3. Manage crew");
+        ui.println("4. Manage craft");
+        ui.println("5. Talk to people");
+        ui.println("6. Stay overnight on Moon Base");
+        ui.print("\nWhat is your choice? ");
+    }
+
+    public void printManageSuppliesDialogue(){
+        ui.clear();
+        ui.println("< Managing Supplies >\n");
+        ui.println("1. Check supplies");
+        ui.println("2. Buy supplies");
+        ui.println("3. Sell supplies");
+        ui.println("4. Change food ration size");
+        ui.println("5. Attempt to trade");
+        ui.println("6. Do nothing");
+        ui.print("\nWhat is your choice? ");
+    }
+    public void printManageCrewDialogue(){
+        ui.clear();
+        ui.println("< Managing Crew >\n");
+        ui.println("1. Check crew list");
+        ui.println("2. Hire crew members");
+        ui.println("3. Fire crew members");
+        ui.println("4. Do nothing");
+        ui.print("\nWhat is your choice? ");
+    }
+    public void printManageCraftOptions(){
+        ui.clear();
+        ui.println("< Managing Space Craft >\n");
+        ui.println("1. Check Space Craft");
+        ui.println("2. Sell Space Craft");
+        ui.println("3. Buy Space Craft");
+        ui.println("4. Craft Maintenance");
+        ui.println("5. Do nothing");
+        ui.print("\nWhat is your choice?");
+    }
+    public void printCraftMaintenanceOptions(){
+        ui.clear();
+        ui.println("< Space Craft Maintenance >\n");
+        ui.println("1. Have crew engineers perform maintenance - minimal repair gain, but free");
+        ui.println("2. Have Moon Base Repairman perform maintenance - excellent repair gain, $1000");
+        ui.println("3. Do nothing");
+        ui.print("\nWhat is your choice? ");
+    }
 }

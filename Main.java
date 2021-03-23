@@ -92,7 +92,9 @@ class Main {
         // Welcome to the MOON!
         text.printMoonWelcome();
 
-        myCrew.fireCrewMember();
-        myCrew.printCrewList();
+        userSelc = 0;
+        while (userSelc != 1) {
+            text.printMoonDailyMessage(tripOneCurrentDay, myCrew, myFood, myCraft);
+        }
     } 
 }
