@@ -131,6 +131,43 @@ public class TextBlocks {
         }
         return (counter);
     }
+
+    public int loopMoonShipText() {
+        boolean stillBrowsing = true;
+        int counter = 1;
+        while (stillBrowsing) {
+            ui.clear();
+            switch (counter) {
+                case 1:
+                    printSkybirdText();
+                    break;
+                case 2:
+                    printHelios9Text();
+                    break;
+                case 3:
+                    printPegasusText();
+                    break;
+                default:
+                    ui.println("Something's wrong.");
+                    break;
+            }
+            // Give user options
+            ui.print("\n1. See next ship\n2. Purchase this ship\n\nWhat would you like to do? ");
+            // Are we done?
+            if (keyboard.nextInt() == 2) {
+                stillBrowsing = false; 
+            } else {
+                counter++;
+                // Loop back to beginning of ship list
+                if (counter > 5) {
+                    counter = 1;
+                }
+            }
+        }
+        return (counter);
+    }
+
+
     public void printLaunchPrompt(){
         ui.print("\n1. Launch Today\n2. Postpone launch one day\n\nWhat would you like to do? ");
     }
@@ -218,12 +255,19 @@ public class TextBlocks {
                 break;
             case 5:
                 ui.println("Trade place holder.");
+                ui.pressEnter();
                 break;
             case 6:
                 break;
             default:
                 break;
         }
+    }
+
+    public void printSpaceCraftVendorDialogue(){
+        ui.clear();
+        ui.println("< Welcome to Al's Space Barn >\n\nWe've got all your space craft needs, offered to you at low low prices. No need to worry about pesky launch costs here. I bet you'll find something you like.\n");
+        ui.pressEnter();
     }
 
     public void printManageCrewDialogue(){
@@ -239,10 +283,9 @@ public class TextBlocks {
         ui.clear();
         ui.println("< Managing Space Craft >\n");
         ui.println("1. Check Space Craft");
-        ui.println("2. Sell Space Craft");
-        ui.println("3. Buy Space Craft");
-        ui.println("4. Craft Maintenance");
-        ui.println("5. Do nothing");
+        ui.println("2. Buy Space Craft");
+        ui.println("3. Craft Maintenance");
+        ui.println("4. Do nothing");
         ui.print("\nWhat is your choice?");
     }
     public void printCraftMaintenanceOptions(){
@@ -260,6 +303,16 @@ public class TextBlocks {
         ui.println("Welcome aboard Captain " + captainName + "!\n\nYour first task is to choose a ship.\n\nChoose wisely, some of these flight vehicles are meant for short voyages only and others are suitable for long hauls. You will have the opportunity to purchase a new flight vehicle at each waystion.\n\nYour starting budget is $" + money + ". Ship costs include any fuel needed to get out of Earth's orbit.");
         printStarLines();
         ui.pressEnter();
+    }
+
+    public void printSkybirdText(){
+        ui.println("Skybird place holder");
+    }
+    public void printHelios9Text(){
+        ui.println("helios 9 placeholder");
+    }
+    public void printPegasusText(){
+        ui.println("pegasus placeholder");
     }
 
     public void printStarLines() {

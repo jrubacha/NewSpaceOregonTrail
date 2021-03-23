@@ -1,5 +1,6 @@
 public class SpaceCraft {
     UserInterface ui = new UserInterface();
+    TextBlocks text = new TextBlocks();
     enum craftQuality {
         POOR,
         FAIR,
@@ -166,5 +167,37 @@ public class SpaceCraft {
         } else {
             return (30 * 8 * 3);
         }
+    }
+
+    public int buyCraftFromStation(int whichCraft){
+        text.printSpaceCraftVendorDialogue();
+        boolean needAShip = true;
+
+        // "Sell" your current ship
+        int value = (int) (cost * 0.5);
+        while (needAShip) {
+            switch (whichCraft) {
+                case 1:
+                    // skybird
+                    needAShip = false;
+                    break;
+                case 2:
+                    // helios 9
+                    needAShip = false;
+                    break;
+                case 3: 
+                    // pegasus
+                    needAShip = false;
+                    break;
+                case 4:
+                    // nevermind, no sale
+                    needAShip = false;
+                    break;
+                default:
+                    ui.println("That's not a valid choice. Please try again");
+                    break;
+            }
+        }
+        return (cost-value);
     }
 }

@@ -95,11 +95,6 @@ public class Crew {
         ui.clear();
         ui.print("\nYou can hire several people for your journey. There are many qualified candidates from the following categories:\n1. Engineer\n2. Scientist\n3. Communications Officer\n4. Pilot\n5. No more hires\n\nWho would you like to hire? ");
     }
-    public void hireCrewMember(){
-        hireCrewPrompt();
-        int userSelc = keyboard.nextInt();
-
-    }
 
     public int sumTotalOfCrew() {
         return (crewList.size());
