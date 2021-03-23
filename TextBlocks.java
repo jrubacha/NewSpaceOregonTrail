@@ -181,6 +181,33 @@ public class TextBlocks {
         ui.println("6. Do nothing");
         ui.print("\nWhat is your choice? ");
     }
+    public void handleManageSupplies(int selection, Supplies.Food food, Supplies.Money money) {
+        switch (selection) {
+            case 1:
+                food.printFoodQuantityAndRationSize();
+                break;
+            case 2:
+                ui.println("Buy food placeholder");
+                break;
+            case 3:
+                //ui.println("Seconds before disaster?");   
+                food.sellFood();
+                break;
+            case 4:
+                food.printChangeRationSizePrompt();
+                int userSelc = keyboard.nextInt();
+                food.changeRationSize(userSelc);
+                break;
+            case 5:
+                ui.println("Trade place holder.");
+                break;
+            case 6:
+                break;
+            default:
+                break;
+        }
+    }
+
     public void printManageCrewDialogue(){
         ui.clear();
         ui.println("< Managing Crew >\n");

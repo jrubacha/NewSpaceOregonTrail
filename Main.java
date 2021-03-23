@@ -5,6 +5,7 @@ class Main {
         TextBlocks text = new TextBlocks();
         Scanner keyboard = new Scanner(System.in);
         Crew myCrew = new Crew();
+        Supplies.Money myMoney = new Supplies.Money();
         myCrew.addCaptain();
         ui.println("Ship pick");
         SpaceCraft myCraft = new SpaceCraft();
@@ -93,8 +94,36 @@ class Main {
         text.printMoonWelcome();
 
         userSelc = 0;
+        int userSelc2 = 0;
         while (userSelc != 1) {
             text.printMoonDailyMessage(tripOneCurrentDay, myCrew, myFood, myCraft);
+            userSelc = keyboard.nextInt();
+            switch (userSelc) {
+                case 1:
+                    ui.println("Continue on journey placeholder");
+                    break;
+                case 2:
+                    text.printManageSuppliesDialogue();
+                    userSelc2 = keyboard.nextInt();
+                    text.handleManageSupplies(userSelc2, myFood, myMoney);
+                    break;
+                case 3:
+                    text.printManageCrewDialogue();
+                    userSelc2 = keyboard.nextInt();
+                    break;
+                case 4:
+                    text.printManageCraftOptions();
+                    userSelc2 = keyboard.nextInt();
+                    break;
+                case 5:
+                    ui.println("Take to people place holder");
+                    break;
+                case 6:
+                    ui.println("stay overnight placeholder");
+                    break;
+                default:
+                    break;
+            }
         }
     } 
 }

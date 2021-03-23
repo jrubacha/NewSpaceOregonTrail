@@ -1,6 +1,8 @@
+import java.util.*;
 class Supplies {
     UserInterface ui = new UserInterface();
-    int amount;
+    Scanner keyboard = new Scanner(System.in);
+    static int amount;
 
     public int getQuantity(){
         return amount;
@@ -14,7 +16,31 @@ class Supplies {
     public void reduceQuantity(int newAmount) {
         amount = amount - newAmount;
     }
+    public void sellQuantity(int sellAmount) {
+        reduceQuantity(sellAmount);
+        Money.increaseMoney(sellAmount * 7);
+    }
+    public void purchaseQuantity(int purchaseAmount) {
+        addQuantity(purchaseAmount);
+        Money.decreaseMoney(purchaseAmount * 10);
+    }
     
+    public static class Money extends Supplies {
+        static int amountOfMoney;
+        public Money(){
+            amountOfMoney = 65000;
+        }
+        public static void increaseMoney(int increaseAmount){
+            amountOfMoney = amountOfMoney + increaseAmount;
+        }
+        public static void decreaseMoney(int decreaseAmount){
+            amountOfMoney = amountOfMoney - decreaseAmount;
+        }
+        public int getAmountOfMoney(){
+            return amountOfMoney;
+        }
+    }
+
     public static class Food extends Supplies {
         FoodRationSize rationSize;
         enum FoodRationSize {
@@ -27,6 +53,17 @@ class Supplies {
             this.amount = quantityOfFood;
             rationSize = FoodRationSize.FILLING;
         }
+        public void printFoodQuantityAndRationSize(){
+            ui.println("You have " + amount + " lbs of food.\nYour ration size is set to " + rationSize);
+        }
+        public void sellFood() {
+            ui.println("< Selling Food >\n\nHow many pounds of food would you like to sell? ");
+            int sellAmount = keyboard.nextInt();
+            sellQuantity(sellAmount);
+            ui.println("You now have " + amount + " lbs of food.\n\nYou have $" + Money.amountOfMoney + "\n");
+            ui.pressEnter();
+        }
+
         public void setRationSizeToBareBones(){
             rationSize = FoodRationSize.BAREBONES;
         }
