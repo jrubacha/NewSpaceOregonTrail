@@ -54,7 +54,7 @@ class Main {
             myCraft.calculateFuelBurn();
             userSelc = 0;
             while(userSelc != 1) {
-                text.printDailyMessage(tripOneCurrentDay, myCrew, myFood);
+                text.printDailyMessage(tripOneCurrentDay, myCrew, myFood, myLocation);
                 userSelc = keyboard.nextInt();
                 switch (userSelc) {
                     case 2:
@@ -97,11 +97,12 @@ class Main {
 
         // Welcome to the MOON!
         text.printMoonWelcome();
+        myLocation = currentLocation.MOON_BASE_1;
 
         userSelc = 0;
         int userSelc2 = 0;
         while (userSelc != 1) {
-            text.printMoonDailyMessage(tripOneCurrentDay, myCrew, myFood, myCraft);
+            text.printMoonDailyMessage(tripOneCurrentDay, myCrew, myFood, myCraft, myLocation);
             userSelc = keyboard.nextInt();
             switch (userSelc) {
                 case 1:
