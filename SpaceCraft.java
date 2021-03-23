@@ -170,7 +170,6 @@ public class SpaceCraft {
     }
 
     public int buyCraftFromStation(int whichCraft){
-        text.printSpaceCraftVendorDialogue();
         boolean needAShip = true;
 
         // "Sell" your current ship

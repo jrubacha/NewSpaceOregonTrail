@@ -133,6 +133,7 @@ public class TextBlocks {
     }
 
     public int loopMoonShipText() {
+        printSpaceCraftVendorDialogue();
         boolean stillBrowsing = true;
         int counter = 1;
         while (stillBrowsing) {
@@ -159,7 +160,7 @@ public class TextBlocks {
             } else {
                 counter++;
                 // Loop back to beginning of ship list
-                if (counter > 5) {
+                if (counter > 3) {
                     counter = 1;
                 }
             }
@@ -286,8 +287,30 @@ public class TextBlocks {
         ui.println("2. Buy Space Craft");
         ui.println("3. Craft Maintenance");
         ui.println("4. Do nothing");
-        ui.print("\nWhat is your choice?");
+        ui.print("\nWhat is your choice? ");
     }
+
+    public int manageCraftOptions(int userSelc, SpaceCraft craft, int money){
+        switch (userSelc) {
+            case 1: // check space craft
+                craft.displayCraftSpecs();
+                ui.pressEnter();
+                break;
+            case 2: // buy space craft
+                money = money - craft.buyCraftFromStation(loopMoonShipText());
+                break;
+            case 3: // maintenance
+                ui.println("Maintenance Placeholder");
+                ui.pressEnter();
+                break;
+            case 4: // go back to main menu
+                break;
+            default: // stay on current menu
+                break;
+        }
+        return money;
+    }
+
     public void printCraftMaintenanceOptions(){
         ui.clear();
         ui.println("< Space Craft Maintenance >\n");

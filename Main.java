@@ -147,7 +147,8 @@ class Main {
                 case 4:
                     text.printManageCraftOptions();
                     userSelc2 = keyboard.nextInt();
-                    myMoney = myMoney - myCraft.buyCraftFromStation(text.loopMoonShipText());
+                    myMoney = text.manageCraftOptions(userSelc2, myCraft, myMoney);
+                    //myMoney = myMoney - myCraft.buyCraftFromStation(text.loopMoonShipText());
                     break;
                 case 5:
                     ui.println("Talk to people place holder");
