@@ -46,7 +46,7 @@ class Supplies {
             int buyAmount = keyboard.nextInt();
             amount = amount + buyAmount;
             money = money - buyAmount * foodCost;
-            ui.println("You now have " + amount + " lbs of food and $" + money);
+            ui.println("\nYou now have " + amount + " lbs of food and $" + money);
             ui.pressEnter();
             return money;
         }

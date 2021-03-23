@@ -134,17 +134,18 @@ public class TextBlocks {
         ui.print("Congrats on making it to space. You're on your way to the Moon now. ");
     }
 
-    public void printDailyHeader(int day, Crew crew, Supplies.Food food, currentLocation myLocation) {
-        ui.println("Hello. It's day #" + day + " in space.");
+    public void printDailyHeader(int day, Crew crew, Supplies.Food food, currentLocation myLocation, int money) {
+        ui.println("Day #" + day);
         ui.println("Crew Condition: " + crew.getOverallCrewHealth());
         ui.println("Food: " + food.getQuantity() + " lbs remaining");
         ui.println("Location: " + myLocation);
-        ui.println("\n=========================");
+        ui.println("Money: " + money);
+        ui.println("=========================");
     }
 
-    public void printDailyMessage(int day, Crew crew, Supplies.Food food, currentLocation myLocation) {
+    public void printDailyMessage(int day, Crew crew, Supplies.Food food, currentLocation myLocation, int money) {
         ui.clear();
-        printDailyHeader(day, crew, food, myLocation);
+        printDailyHeader(day, crew, food, myLocation, money);
         ui.println("1. Continue on your journey");
         ui.println("2. Check supplies");
         ui.println("3. Change food rations");
@@ -164,13 +165,15 @@ public class TextBlocks {
 
     public void printMoonWelcome() {
         ui.clear();
+        printStarLines();
         ui.println("Wecolme to Moon Base 1! Established in 2154, Moon Base 1 is a thriving hub of near-field research, commerce, and entertainment. You are welcome to stay in your docking station as long as you want, parking here is always free. Check out the vendors if you need a new ship or more supplies. Star Command Regional offices are always open if want to hire/fire any crew members. Interstellar launch rings will be waiting to take you on to Mars when you're ready to leave.\n");
+        printStarLines();
         ui.pressEnter();
     }
 
-    public void printMoonDailyMessage(int day, Crew crew, Supplies.Food food, SpaceCraft craft, currentLocation myLocation){
+    public void printMoonDailyMessage(int day, Crew crew, Supplies.Food food, SpaceCraft craft, currentLocation myLocation, int money){
         ui.clear();
-        printDailyHeader(day, crew, food, myLocation);
+        printDailyHeader(day, crew, food, myLocation, money);
         ui.println("1. Continue on your journey");
         ui.println("2. Manage supplies");
         ui.println("3. Manage crew");

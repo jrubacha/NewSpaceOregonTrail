@@ -24,15 +24,17 @@ class Main {
         
 
         // Hire a crew
+        // TODO: write better intro
         myCrew.assembleCrew(myCraft.capacity);
         myCrew.printCrewList();
 
         // Buy food for said crew
-        ui.println("Now that you have a crew, you'll need to take care of them.\n\nYou'll need to make initial purchases of food and water to last at least until you can get to the moon.");
-        ui.pressEnter();
+        ui.clear();
+        ui.println("Now that you have a crew, you'll need to take care of them.\n\nYou'll need to make initial purchases of food and water to last at least until you can get to the moon.\n");
         myMoney = myFood.buyFood(myMoney);
 
-        // Test the weather stuff
+        // roll weather stuff
+        // TODO: Add an intro here
         Weather myWeather = new Weather();
         int counter = 1;
         int userSelc = 0;
@@ -55,7 +57,8 @@ class Main {
             System.exit(0); // you lost
         } else {
             ui.clear();
-            ui.println("Congrats! You didn't die on launch.");
+            ui.println("Congrats! You didn't die on launch."); // TODO. this gets overrun. and add a better success message
+            ui.pressEnter();
             myLocation = currentLocation.SPACE;
         }
 
@@ -66,7 +69,7 @@ class Main {
             myCraft.calculateFuelBurn();
             userSelc = 0;
             while(userSelc != 1) {
-                text.printDailyMessage(tripOneCurrentDay, myCrew, myFood, myLocation);
+                text.printDailyMessage(tripOneCurrentDay, myCrew, myFood, myLocation, myMoney);
                 userSelc = keyboard.nextInt();
                 switch (userSelc) {
                     case 2:
@@ -108,13 +111,13 @@ class Main {
         } // trip one
 
         // Welcome to the MOON!
-        text.printMoonWelcome();
+        text.printMoonWelcome(); // TODO: add star formats
         myLocation = currentLocation.MOON_BASE_1;
 
         userSelc = 0;
         int userSelc2 = 0;
         while (userSelc != 1) {
-            text.printMoonDailyMessage(tripOneCurrentDay, myCrew, myFood, myCraft, myLocation);
+            text.printMoonDailyMessage(tripOneCurrentDay, myCrew, myFood, myCraft, myLocation, myMoney);
             userSelc = keyboard.nextInt();
             switch (userSelc) {
                 case 1:
@@ -134,7 +137,8 @@ class Main {
                     userSelc2 = keyboard.nextInt();
                     break;
                 case 5:
-                    ui.println("Take to people place holder");
+                    ui.println("Talk to people place holder");
+                    ui.pressEnter();
                     break;
                 case 6:
                     ui.println("stay overnight placeholder"); // this probably not needed

@@ -62,9 +62,8 @@ public class Crew {
                     ui.clear();
                     ui.println("I'm sorry, you can't hire that number. No hires were made.");
                 } else {
-                    ui.clear();
                     for (int i=0; i<numberOfCrewToAdd; i++) {
-                        ui.print("What this crew member's name? ");
+                        ui.print("What's this crew member's name? ");
                         String newCrewName = keyboard.next();
                         crewList.add(new CrewMember(newCrewName, currentJob));
                     }
@@ -75,7 +74,7 @@ public class Crew {
 
     public void hireCrewPrompt(){
         ui.clear();
-        ui.println("\nWho would you like to hire?\n1. Engineer\n2. Scientist\n3. Communications Officer\n4. Pilot\n5. No more hires");
+        ui.print("\nYou can hire several people for your journey. There are many qualified candidates from the following categories:\n1. Engineer\n2. Scientist\n3. Communications Officer\n4. Pilot\n5. No more hires\n\nWho would you like to hire? ");
     }
 
     public int sumTotalOfCrew() {
