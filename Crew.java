@@ -72,9 +72,33 @@ public class Crew {
         }
     }
 
+    public void manageCrew(int userSelc, Crew crew, SpaceCraft craft){
+        //while ((userSelc < 1) || (userSelc >4)) {
+            switch (userSelc) { // check, hire, fire, nothing
+                case 1:
+                    printCrewList();
+                    break;
+                case 2:
+                    assembleCrew(craft.getCapacity());
+                    break;
+                case 3:
+                    fireCrewMember();
+                    break;
+                case 4:
+                    break;
+                default:
+                    break;
+            }
+        //}
+    }
     public void hireCrewPrompt(){
         ui.clear();
         ui.print("\nYou can hire several people for your journey. There are many qualified candidates from the following categories:\n1. Engineer\n2. Scientist\n3. Communications Officer\n4. Pilot\n5. No more hires\n\nWho would you like to hire? ");
+    }
+    public void hireCrewMember(){
+        hireCrewPrompt();
+        int userSelc = keyboard.nextInt();
+
     }
 
     public int sumTotalOfCrew() {
@@ -109,15 +133,19 @@ public class Crew {
     }
 
     public void fireCrewMember(){
-        ui.clear();
-        ui.println("Here's your current crew:");
-        int j = 1;
-        for (CrewMember i : crewList) {
-            ui.println(j++ + ".  " + i.getName());
+        if (crewList.size() == 1) {
+            ui.println("You don't have anyone you can fire.");
+        } else {
+            ui.clear();
+            ui.println("Here's your current crew:");
+            int j = 1;
+            for (int i=1; i<crewList.size(); i++) {
+                ui.println(i + ".  " + crewList.get(i).getName() + "   Occupation: " + crewList.get(i).getOccupation());
+            }
+            ui.print("Who would you like to fire? ");
+            int firedMember = keyboard.nextInt();
+            crewList.remove(firedMember);
         }
-        ui.print("Who would you like to fire? ");
-        int firedMember = keyboard.nextInt();
-        crewList.remove(firedMember - 1);
     }
 
     public String getOverallCrewHealth(){

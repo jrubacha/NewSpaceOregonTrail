@@ -125,6 +125,14 @@ class Main {
             switch (userSelc) {
                 case 1:
                     notADeepSpaceShip = (SpaceCraft.craftRange.MOON == myCraft.range);
+                    if (notADeepSpaceShip) {
+                        userSelc = 0;
+                        ui.println("\nYour ship isn't capable of heading deeper into space. You'll need to purchase a different one.");
+                        ui.pressEnter();
+                    } else {
+                        ui.print("\nYou won't be able to return to the Moon if you leave now. \n1. Leave\n2. Stay on the Moon\n\nWhat would you like to do? ");
+                        userSelc = keyboard.nextInt();
+                    }
                     break;
                 case 2:
                     text.printManageSuppliesDialogue();
@@ -134,6 +142,7 @@ class Main {
                 case 3:
                     text.printManageCrewDialogue();
                     userSelc2 = keyboard.nextInt();
+                    myCrew.manageCrew(userSelc2, myCrew, myCraft);
                     break;
                 case 4:
                     text.printManageCraftOptions();
@@ -150,14 +159,7 @@ class Main {
                 default:
                     break;
             }
-            if (notADeepSpaceShip) {
-                userSelc = 0;
-                ui.println("\nYour ship isn't capable of heading deeper into space. You'll need to purchase a different one.");
-                ui.pressEnter();
-            } else {
-                ui.print("\nYou won't be able to return to the Moon if you leave now. \n1. Leave\n2. Stay on the Moon\n\nWhat would you like to do? ");
-                userSelc = keyboard.nextInt();
-            }
+            
         }
     } 
 }

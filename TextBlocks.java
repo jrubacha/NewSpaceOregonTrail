@@ -203,6 +203,7 @@ public class TextBlocks {
         switch (selection) {
             case 1:
                 food.printFoodQuantityAndRationSize();
+                ui.pressEnter();
                 break;
             case 2:
                 food.buyFood(money);
