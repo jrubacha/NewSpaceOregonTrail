@@ -11,7 +11,7 @@ class Main {
         SpaceCraft myCraft = new SpaceCraft();
         myCraft = text.getCraftSelection(text.loopShipText());
         ui.println(myCraft.getCraftName());
-
+        currentLocation myLocation = currentLocation.EARTH;
         // Hire a crew
         myCrew.assembleCrew(myCraft.capacity);
         myCrew.printCrewList();
@@ -34,12 +34,17 @@ class Main {
         }
         if (counter>15){
             ui.println("Oh no! You waited too long.");
-            System.exit(0);
+            System.exit(0); // you lost
         } else if (!myWeather.isLaunchSuccessful()) {
-            ui.println("Oh no! You died.");
-            System.exit(0);
+            ui.clear();
+            ui.println("*************************************************\n");
+            ui.println("Weather conditions proved unfavorable for the launch.\n\nStar Command is sorry to report that all hands were lost.");
+            ui.println("\n*************************************************");
+            System.exit(0); // you lost
         } else {
+            ui.clear();
             ui.println("Congrats! You didn't die on launch.");
+            myLocation = currentLocation.SPACE;
         }
 
         int tripOneDuration = myCraft.calculateTimeToMoon();
@@ -119,7 +124,8 @@ class Main {
                     ui.println("Take to people place holder");
                     break;
                 case 6:
-                    ui.println("stay overnight placeholder");
+                    ui.println("stay overnight placeholder"); // this probably not needed
+                    tripOneCurrentDay++;
                     break;
                 default:
                     break;

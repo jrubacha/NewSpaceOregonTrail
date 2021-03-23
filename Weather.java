@@ -58,7 +58,11 @@ public class Weather {
         }
     }
     public boolean isLaunchSuccessful(){
-        if (currentRainState == rainState.HAIL || currentRainState == rainState.THUNDERSTORM || currentWindState == windState.GUSTY) {
+        if (rand.nextInt(100) == 1) {
+            ui.println("Sometimes, fate is just not in your favor. Inexplicably, your craft blew up on launch and all crew members died. Rest assured, there will be a thorough investigation into this matter.");
+            System.exit(0);
+            return false;
+        } else if (currentRainState == rainState.HAIL || currentRainState == rainState.THUNDERSTORM || currentWindState == windState.GUSTY) {
             return false;
         } else if (currentRainState == rainState.THUNDERSTORM) {
             return false;

@@ -16,13 +16,13 @@ class Supplies {
     public void reduceQuantity(int newAmount) {
         amount = amount - newAmount;
     }
-    public void sellQuantity(int sellAmount) {
+    public void sellQuantity(int sellAmount, int baseValue) {
         reduceQuantity(sellAmount);
-        Money.increaseMoney(sellAmount * 7);
+        Money.increaseMoney(sellAmount * baseValue * 7);
     }
-    public void purchaseQuantity(int purchaseAmount) {
+    public void purchaseQuantity(int purchaseAmount, int baseValue) {
         addQuantity(purchaseAmount);
-        Money.decreaseMoney(purchaseAmount * 10);
+        Money.decreaseMoney(purchaseAmount * baseValue * 10);
     }
     
     public static class Money extends Supplies {
@@ -43,6 +43,7 @@ class Supplies {
 
     public static class Food extends Supplies {
         FoodRationSize rationSize;
+        int foodBaseValue = 1;
         enum FoodRationSize {
             BAREBONES,
             MEAGER,
@@ -59,7 +60,14 @@ class Supplies {
         public void sellFood() {
             ui.println("< Selling Food >\n\nHow many pounds of food would you like to sell? ");
             int sellAmount = keyboard.nextInt();
-            sellQuantity(sellAmount);
+            sellQuantity(sellAmount, foodBaseValue);
+            ui.println("You now have " + amount + " lbs of food.\n\nYou have $" + Money.amountOfMoney + "\n");
+            ui.pressEnter();
+        }
+        public void buyFood() {
+            ui.println("< Buying Food >\n\nHow many pounds of food would you like to sell? ");
+            int buyAmount = keyboard.nextInt();
+            purchaseQuantity(buyAmount, foodBaseValue);
             ui.println("You now have " + amount + " lbs of food.\n\nYou have $" + Money.amountOfMoney + "\n");
             ui.pressEnter();
         }

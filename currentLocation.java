@@ -1,0 +1,10 @@
+
+public enum currentLocation {
+    EARTH,
+    SPACE,
+    MOON_BASE_1,
+    MARS_COLONY_7,
+    INNER_BELT_TRANSIT_STATION_2,
+    OUTER_BELT_OUTPOST_4,
+    GANYMEDE_RESEARCH_CENTER
+}

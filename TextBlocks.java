@@ -187,10 +187,9 @@ public class TextBlocks {
                 food.printFoodQuantityAndRationSize();
                 break;
             case 2:
-                ui.println("Buy food placeholder");
+                food.buyFood();
                 break;
-            case 3:
-                //ui.println("Seconds before disaster?");   
+            case 3:   
                 food.sellFood();
                 break;
             case 4:
