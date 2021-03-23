@@ -191,13 +191,13 @@ public class TextBlocks {
         ui.println("6. Do nothing");
         ui.print("\nWhat is your choice? ");
     }
-    public void handleManageSupplies(int selection, Supplies.Food food, Supplies.Money money) {
+    public void handleManageSupplies(int selection, Supplies.Food food, int money) {
         switch (selection) {
             case 1:
                 food.printFoodQuantityAndRationSize();
                 break;
             case 2:
-                food.buyFood();
+                food.buyFood(money);
                 break;
             case 3:   
                 food.sellFood();
@@ -245,10 +245,10 @@ public class TextBlocks {
         ui.print("\nWhat is your choice? ");
     }
 
-    public void shipSelectionPrompt(String captainName) {
+    public void shipSelectionPrompt(String captainName, int money) {
         ui.clear();
         printStarLines();
-        ui.println("Welcome aboard Captain " + captainName + "!\n\nYour first task is to choose a ship.\n\nChoose wisely, some of these flight vehicles are meant for short voyages only and others are suitable for long hauls. You will have the opportunity to purchase a new flight vehicle at each waystion.\n\nYour starting budget is $" + Supplies.Money.amountOfMoney + ". Ship costs include any fuel needed to get out of Earth's orbit.");
+        ui.println("Welcome aboard Captain " + captainName + "!\n\nYour first task is to choose a ship.\n\nChoose wisely, some of these flight vehicles are meant for short voyages only and others are suitable for long hauls. You will have the opportunity to purchase a new flight vehicle at each waystion.\n\nYour starting budget is $" + money + ". Ship costs include any fuel needed to get out of Earth's orbit.");
         printStarLines();
         ui.pressEnter();
     }

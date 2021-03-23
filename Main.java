@@ -5,10 +5,11 @@ class Main {
         TextBlocks text = new TextBlocks();
         Scanner keyboard = new Scanner(System.in);
         Crew myCrew = new Crew();
-        Supplies.Money myMoney = new Supplies.Money();
+        //Supplies.Money myMoney = new Supplies.Money();
         Supplies.Food myFood = new Supplies.Food(0);
         currentLocation myLocation = currentLocation.EARTH;
         SpaceCraft myCraft = new SpaceCraft();
+        int myMoney = 65000;
 
         // Welcome and get Captain Name
         text.printGameIntro();
@@ -16,9 +17,9 @@ class Main {
 
 
         // Ship Selection - Earth
-        text.shipSelectionPrompt(myCrew.getCaptainName());
+        text.shipSelectionPrompt(myCrew.getCaptainName(), myMoney);
         myCraft = text.getCraftSelection(text.loopShipText());
-        myMoney.reduceQuantity(myCraft.getCost());
+        myMoney = myMoney - myCraft.getCost();
         ui.println(myCraft.getCraftName());
         
 
@@ -29,7 +30,7 @@ class Main {
         // Buy food for said crew
         ui.println("Now that you have a crew, you'll need to take care of them.\n\nYou'll need to make initial purchases of food and water to last at least until you can get to the moon.");
         ui.pressEnter();
-        myFood.buyFood();
+        myMoney = myFood.buyFood(myMoney);
 
         // Test the weather stuff
         Weather myWeather = new Weather();

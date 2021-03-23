@@ -16,34 +16,11 @@ class Supplies {
     public void reduceQuantity(int newAmount) {
         amount = amount - newAmount;
     }
-    public void sellQuantity(int sellAmount, int baseValue) {
-        reduceQuantity(sellAmount);
-        Money.increaseMoney(sellAmount * baseValue * 7);
-    }
-    public void purchaseQuantity(int purchaseAmount, int baseValue) {
-        addQuantity(purchaseAmount);
-        Money.decreaseMoney(purchaseAmount * baseValue * 10);
-    }
-    
-    public static class Money extends Supplies {
-        static int amountOfMoney;
-        public Money(){
-            amountOfMoney = 65000;
-        }
-        public static void increaseMoney(int increaseAmount){
-            amountOfMoney = amountOfMoney + increaseAmount;
-        }
-        public static void decreaseMoney(int decreaseAmount){
-            amountOfMoney = amountOfMoney - decreaseAmount;
-        }
-        public int getAmountOfMoney(){
-            return amountOfMoney;
-        }
-    }
 
     public static class Food extends Supplies {
         FoodRationSize rationSize;
-        int foodBaseValue = 1;
+        int foodCost = 2;
+        int foodSale = 1;
         enum FoodRationSize {
             BAREBONES,
             MEAGER,
@@ -60,16 +37,18 @@ class Supplies {
         public void sellFood() {
             ui.println("< Selling Food >\n\nHow many pounds of food would you like to sell? ");
             int sellAmount = keyboard.nextInt();
-            sellQuantity(sellAmount, foodBaseValue);
-            ui.println("You now have " + amount + " lbs of food.\n\nYou have $" + Money.amountOfMoney + "\n");
+            //sellQuantity(sellAmount, foodBaseValue);
+            ui.println("You now have " + amount + " lbs of food.\n\nYou have $");
             ui.pressEnter();
         }
-        public void buyFood() {
-            ui.println("< Buying Food >\n\nThe average person eats 2 lbs of food a day.\n\nHow many pounds of food would you like to buy? ");
+        public int buyFood(int money) {
+            ui.print("< Buying Food >\n\nThe average person eats 2 lbs of food a day.\n\nHow many pounds of food would you like to buy? ");
             int buyAmount = keyboard.nextInt();
-            purchaseQuantity(buyAmount, foodBaseValue);
-            ui.println("You now have " + amount + " lbs of food.\n\nYou have $" + Money.amountOfMoney + "\n");
+            amount = amount + buyAmount;
+            money = money - buyAmount * foodCost;
+            ui.println("You now have " + amount + " lbs of food and $" + money);
             ui.pressEnter();
+            return money;
         }
 
         public void setRationSizeToBareBones(){
