@@ -24,6 +24,7 @@ public class TextBlocks {
                     firstCraft.setSpeedtoSlow();
                     firstCraft.setTankSizeToSmall();
                     firstCraft.setCost(1000);
+                    firstCraft.setRangetoMoon();
                     needAShip = false;
                     break;
                 case 2:
@@ -33,6 +34,7 @@ public class TextBlocks {
                     firstCraft.setSpeedtoSlow();
                     firstCraft.setTankSizeToMedium();
                     firstCraft.setCost(5000);
+                    firstCraft.setRangetoMoon();
                     needAShip = false;
                     break;
                 case 3: 
@@ -42,6 +44,7 @@ public class TextBlocks {
                     firstCraft.setSpeedtoMedium();
                     firstCraft.setTankSizeToMedium();
                     firstCraft.setCost(10000);
+                    firstCraft.setRangetoMars();
                     needAShip = false;
                     break;
                 case 4:
@@ -51,6 +54,7 @@ public class TextBlocks {
                     firstCraft.setSpeedtoFast();
                     firstCraft.setTankSizeToMedium();
                     firstCraft.setCost(20000);
+                    firstCraft.setRangetoEverywhere();
                     needAShip = false;
                     break;
                 case 5:
@@ -60,6 +64,7 @@ public class TextBlocks {
                     firstCraft.setSpeedtoFast();
                     firstCraft.setTankSizeToLarge();
                     firstCraft.setCost(40000);
+                    firstCraft.setRangetoEverywhere();
                     needAShip = false;
                     break;
                 default:

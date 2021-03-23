@@ -62,6 +62,7 @@ class Main {
             myLocation = currentLocation.SPACE;
         }
 
+        // Begin Space Section
         int tripOneDuration = myCraft.calculateTimeToMoon();
         int tripOneCurrentDay = 1;
         while (ui.areWeAlive(myFood, myCraft, myCrew, tripOneCurrentDay) && tripOneCurrentDay < tripOneDuration) {
@@ -114,14 +115,16 @@ class Main {
         text.printMoonWelcome(); // TODO: add star formats
         myLocation = currentLocation.MOON_BASE_1;
 
+        // Begin Moon Base Section
         userSelc = 0;
         int userSelc2 = 0;
         while (userSelc != 1) {
             text.printMoonDailyMessage(tripOneCurrentDay, myCrew, myFood, myCraft, myLocation, myMoney);
             userSelc = keyboard.nextInt();
+            boolean notADeepSpaceShip = false;
             switch (userSelc) {
                 case 1:
-                    ui.println("Continue on journey placeholder");
+                    notADeepSpaceShip = (SpaceCraft.craftRange.MOON == myCraft.range);
                     break;
                 case 2:
                     text.printManageSuppliesDialogue();
@@ -146,6 +149,14 @@ class Main {
                     break;
                 default:
                     break;
+            }
+            if (notADeepSpaceShip) {
+                userSelc = 0;
+                ui.println("\nYour ship isn't capable of heading deeper into space. You'll need to purchase a different one.");
+                ui.pressEnter();
+            } else {
+                ui.print("\nYou won't be able to return to the Moon if you leave now. \n1. Leave\n2. Stay on the Moon\n\nWhat would you like to do? ");
+                userSelc = keyboard.nextInt();
             }
         }
     } 

@@ -15,7 +15,15 @@ public class SpaceCraft {
         MEDIUM,
         LARGE
     }
+    enum craftRange {
+        MOON,
+        MARS,
+        INNER_BELT,
+        OUTER_BELT,
+        EVERYWHERE
+    }
     String name;
+    craftRange range;
     craftQuality quality;
     craftSpeed speed;
     static craftTankSize tankSize;
@@ -110,6 +118,24 @@ public class SpaceCraft {
     }
     public String getSpeedString(){
         return speed.toString();
+    }
+    public void setRangetoMoon(){
+        range = craftRange.MOON;
+    }
+    public void setRangetoMars(){
+        range = craftRange.MARS;
+    }
+    public void setRangetoInnerBelt(){
+        range = craftRange.INNER_BELT;
+    }
+    public void setRangetoOuterBelt(){
+        range = craftRange.OUTER_BELT;
+    }
+    public void setRangetoEverywhere(){
+        range = craftRange.EVERYWHERE;
+    }
+    public String getRangeString(){
+        return range.toString();
     }
 
     public int calculateTimeToMoon() {

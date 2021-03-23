@@ -49,7 +49,7 @@ public class Crew {
                     ui.print("How many pilots would you like to hire? ");
                     break;
                 case 5:
-                    ui.println("No hires, got it.");
+                    ui.println("No hires, got it."); // TODO: fix dialogue and in check if crew list is only captain
                     break;
                 default:
                     ui.println("Don't do that");
