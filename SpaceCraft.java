@@ -177,15 +177,33 @@ public class SpaceCraft {
         while (needAShip) {
             switch (whichCraft) {
                 case 1:
-                    // skybird
+                    name = "Skybird";
+                    range = craftRange.MARS;
+                    cost = 5000;
+                    quality = craftQuality.FAIR;
+                    speed = craftSpeed.SLOW;
+                    tankSize = craftTankSize.MEDIUM;
+                    capacity = 5;
                     needAShip = false;
                     break;
                 case 2:
-                    // helios 9
+                    name = "Helios 9";
+                    range = craftRange.INNER_BELT;
+                    cost = 7500;
+                    quality = craftQuality.POOR;
+                    speed = craftSpeed.SLOW;
+                    tankSize = craftTankSize.LARGE;
+                    capacity = 5;
                     needAShip = false;
                     break;
                 case 3: 
-                    // pegasus
+                    name = "Pegasus";
+                    range = craftRange.EVERYWHERE;
+                    cost = 20000;
+                    quality = craftQuality.GOOD;
+                    speed = craftSpeed.AVERAGE;
+                    tankSize = craftTankSize.MEDIUM;
+                    capacity = 10;
                     needAShip = false;
                     break;
                 case 4:
