@@ -7,8 +7,21 @@ public class Crew {
     //int[] crewMakeUp = {0, 0, 0, 0, 1}; // engr, sci, comm, pilot, capt
 
     public void addCaptain(){
+        ui.clear();
         ui.print("Hello, welcome to Star Command. What is your name? ");
-        crewList.add(new CrewMember(keyboard.next(), CrewMember.CrewMemberOccupation.CAPTAIN));
+        String captainName = keyboard.next();
+        captainName = captainName.substring(0,1).toUpperCase() + captainName.substring(1).toLowerCase();
+        crewList.add(new CrewMember(captainName, CrewMember.CrewMemberOccupation.CAPTAIN));
+    }
+
+    public String getCaptainName() {
+        String captainName = "";
+        for (CrewMember i : crewList) {
+            if (i.occupation == CrewMember.CrewMemberOccupation.CAPTAIN) {
+                captainName = i.getName();
+            }
+        }
+        return captainName;
     }
 
     public void assembleCrew(int maxCapacity) {

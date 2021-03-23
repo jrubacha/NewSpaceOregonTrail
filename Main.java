@@ -6,19 +6,28 @@ class Main {
         Scanner keyboard = new Scanner(System.in);
         Crew myCrew = new Crew();
         Supplies.Money myMoney = new Supplies.Money();
-        myCrew.addCaptain();
-        ui.println("Ship pick");
-        SpaceCraft myCraft = new SpaceCraft();
-        myCraft = text.getCraftSelection(text.loopShipText());
-        ui.println(myCraft.getCraftName());
+        Supplies.Food myFood = new Supplies.Food(0);
         currentLocation myLocation = currentLocation.EARTH;
+        SpaceCraft myCraft = new SpaceCraft();
+
+        // Welcome and get Captain Name
+        myCrew.addCaptain();
+
+
+        // Ship Selection - Earth
+        text.shipSelectionPrompt(myCrew.getCaptainName());
+        myCraft = text.getCraftSelection(text.loopShipText());
+        myMoney.reduceQuantity(myCraft.getCost());
+        ui.println(myCraft.getCraftName());
+        
+
         // Hire a crew
         myCrew.assembleCrew(myCraft.capacity);
         myCrew.printCrewList();
 
         // Buy food for said crew
-        ui.print("The average person eats 2 lbs of food a day.\n\nHow many punds of food would you like? ");
-        Supplies.Food myFood = new Supplies.Food(keyboard.nextInt());
+        ui.print("The average person eats 2 lbs of food a day.\n\n");
+        myFood.buyFood();
 
         // Test the weather stuff
         Weather myWeather = new Weather();

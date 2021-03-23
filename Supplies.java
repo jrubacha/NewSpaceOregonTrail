@@ -65,7 +65,7 @@ class Supplies {
             ui.pressEnter();
         }
         public void buyFood() {
-            ui.println("< Buying Food >\n\nHow many pounds of food would you like to sell? ");
+            ui.println("< Buying Food >\n\nHow many pounds of food would you like to buy? ");
             int buyAmount = keyboard.nextInt();
             purchaseQuantity(buyAmount, foodBaseValue);
             ui.println("You now have " + amount + " lbs of food.\n\nYou have $" + Money.amountOfMoney + "\n");

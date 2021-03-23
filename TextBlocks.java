@@ -236,4 +236,16 @@ public class TextBlocks {
         ui.println("3. Do nothing");
         ui.print("\nWhat is your choice? ");
     }
+
+    public void shipSelectionPrompt(String captainName) {
+        ui.clear();
+        printStarLines();
+        ui.println("Welcome aboard Captain " + captainName + "!\n\nYour first task is to choose a ship.\n\nChoose wisely, some of these flight vehicles are meant for short voyages only and others are suitable for long hauls.\n\nYou will have the opportunity to purchase a new flight vehicle at each waystion.\n");
+        printStarLines();
+        ui.pressEnter();
+    }
+
+    public void printStarLines() {
+        ui.println("******************************************************\n");
+    }
 }
